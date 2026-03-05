@@ -52,7 +52,7 @@ export default function AddProduct() {
         imageUrl: form.imageUrl
       };
       await api.post("/api/products", payload);
-      nav("/admin/products");
+      nav(`/admin/products?cat=${form.category}`);
     } catch (e) {
       setErr(e?.response?.data?.message || "Failed to create product");
     } finally {

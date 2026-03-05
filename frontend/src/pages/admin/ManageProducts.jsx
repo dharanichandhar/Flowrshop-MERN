@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import api from "../../api/axiosInstance";
 import "./ManageProducts.css";
 
 export default function ManageProducts() {
   const nav = useNavigate();
-  const [category, setCategory] = useState("flower");
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("cat") || "flower";
+  const [category, setCategory] = useState(initialCategory);
   const [items, setItems] = useState([]);
   const [err, setErr] = useState("");
   const [search, setSearch] = useState("");
 
+  const handleCategoryChange = (newCategory) => {
+    setCategory(newCategory);
+    nav(`/admin/products?cat=${newCategory}`, { replace: true });
+  };
+
   const load = () => {
-    api.get(`/api/products?category=${category}`)
-      .then((r) => setItems(r.data))
+    api.get("/api/products")
+      .then((r) => {
+        const filtered = r.data.filter(p => 
+          p.category && p.category.toLowerCase() === category.toLowerCase()
+        );
+        setItems(filtered);
+      })
       .catch((e) => setErr(e?.response?.data?.message || "Failed"));
   };
 
@@ -52,7 +64,7 @@ export default function ManageProducts() {
           <div className="category-tabs">
             <button 
               className={`cat-tab ${category === "flower" ? "active" : ""}`}
-              onClick={() => setCategory("flower")}
+              onClick={() => handleCategoryChange("flower")}
             >
               <span className="tab-icon">🌸</span>
               Flowers
@@ -60,7 +72,7 @@ export default function ManageProducts() {
             </button>
             <button 
               className={`cat-tab ${category === "garland" ? "active" : ""}`}
-              onClick={() => setCategory("garland")}
+              onClick={() => handleCategoryChange("garland")}
             >
               <span className="tab-icon">🎀</span>
               Garlands

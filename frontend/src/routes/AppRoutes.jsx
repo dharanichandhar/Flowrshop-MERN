@@ -2,7 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/auth/Login.jsx";
 import Signup from "../pages/auth/Signup.jsx";
 import Home from "../pages/user/Home.jsx";
-import Flowers from "../pages/user/Flowers.jsx";
+import FlowerList from "../pages/user/FlowerList.jsx";
+import GarlandList from "../pages/user/GarlandList.jsx";
 import Cart from "../pages/user/Cart.jsx";
 import Checkout from "../pages/user/Checkout.jsx";
 import MyOrders from "../pages/user/MyOrders.jsx";
@@ -23,8 +24,8 @@ export default function AppRoutes() {
     <Routes>
       <Route element={<UserLayout />}>
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/flowers" element={<ProtectedRoute><Flowers type="flowers" /></ProtectedRoute>} />
-        <Route path="/garlands" element={<ProtectedRoute><Flowers type="garlands" /></ProtectedRoute>} />
+        <Route path="/flowers" element={<ProtectedRoute><FlowerList /></ProtectedRoute>} />
+        <Route path="/garlands" element={<ProtectedRoute><GarlandList /></ProtectedRoute>} />
         <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
         <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
         <Route path="/my-orders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />

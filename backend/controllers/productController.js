@@ -3,12 +3,14 @@ const Product = require("../models/Product");
 async function listProducts(req, res) {
   const { category } = req.query;
   const filter = category ? { category } : {};
+  console.log("listProducts - category filter:", category, filter);
   const products = await Product.find(filter).sort({ createdAt: -1 });
   res.json(products);
 }
 
 async function createProduct(req, res) {
   const { title, price, imageUrl, category, stock } = req.body;
+  console.log("createProduct - received category:", category);
   if (!title || price === undefined || !imageUrl || !category) {
     return res.status(400).json({ message: "Missing required fields" });
   }
@@ -20,6 +22,7 @@ async function createProduct(req, res) {
     category,
     stock: stock ?? 50
   });
+  console.log("createProduct - created product with category:", p.category);
   res.status(201).json(p);
 }
 

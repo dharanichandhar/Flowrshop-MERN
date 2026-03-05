@@ -111,23 +111,28 @@
 
 @media (max-width: 768px) {
   .pImg {
-    height: 180px;
+    height: 140px;
   }
   
   .pBody {
-    padding: 16px;
+    padding: 12px;
   }
   
   .pTitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .pDesc {
+    display: none;
   }
   
   .price {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .btn {
-    padding: 10px 14px;
-    font-size: 0.85rem;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 20px;
   }
 }

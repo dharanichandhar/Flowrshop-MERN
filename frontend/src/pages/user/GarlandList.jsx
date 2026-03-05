@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import api from "../../api/axiosInstance";
 import "./Flowers.css";
@@ -11,28 +11,17 @@ function setCart(c) {
   localStorage.setItem("cart", JSON.stringify(c));
 }
 
-export default function Flowers() {
-  const { type } = useParams();
-  const location = useLocation();
+export default function GarlandList() {
   const [items, setItems] = useState([]);
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const categoryParam = type === "garlands" ? "garland" : "flower";
-  const isGarlands = type === "garlands";
-  const title = isGarlands ? "Flower Garlands" : "Fresh Flowers";
-  const subtitle = isGarlands 
-    ? "Handcrafted garlands for weddings, functions & events" 
-    : "Beautiful fresh flowers for every occasion";
-
   useEffect(() => {
     setLoading(true);
-    setItems([]);
-    
     api.get("/api/products")
       .then((r) => {
         const filtered = r.data.filter(p => 
-          p.category && p.category.toLowerCase() === categoryParam.toLowerCase()
+          p.category && p.category.toLowerCase() === "garland"
         );
         setItems(filtered);
         setLoading(false);
@@ -41,7 +30,7 @@ export default function Flowers() {
         setErr(e?.response?.data?.message || "Failed to load products");
         setLoading(false);
       });
-  }, [location.pathname, categoryParam]);
+  }, []);
 
   const add = (p) => {
     const cart = getCart();
@@ -56,8 +45,8 @@ export default function Flowers() {
     <>
       <div className="productsPage">
         <div className="products-header">
-          <h2>{isGarlands ? '🌸' : '💐'} {title}</h2>
-          <p>{subtitle}</p>
+          <h2>🌸 Flower Garlands</h2>
+          <p>Handcrafted garlands for weddings, functions & events</p>
         </div>
         
         {err && <p className="errTxt">{err}</p>}
@@ -70,7 +59,7 @@ export default function Flowers() {
         ) : items.length === 0 ? (
           <div className="no-products">
             <div className="no-products-icon">🌺</div>
-            <p>No {isGarlands ? "garlands" : "flowers"} available</p>
+            <p>No garlands available</p>
             <Link to="/" className="empty-btn" style={{marginTop: '16px', display: 'inline-block'}}>
               Browse Categories
             </Link>
