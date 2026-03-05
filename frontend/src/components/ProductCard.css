@@ -2,14 +2,14 @@
   background: white;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
   position: relative;
 }
 
 .pCard:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 12px 40px rgba(233, 30, 99, 0.2);
 }
 
 .pImageWrapper {
@@ -69,30 +69,36 @@
 }
 
 .price {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  color: var(--primary);
+  color: #e91e63;
   margin: 0;
 }
 
 .btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
   border: none;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, #e91e63 0%, #ff4081 100%);
   color: white;
-  padding: 12px 18px;
-  border-radius: 24px;
+  padding: 14px 24px;
+  border-radius: 30px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+}
+
+.btn:active {
+  transform: translateY(-1px);
 }
 
 .btn svg {

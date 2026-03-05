@@ -6,7 +6,7 @@
 .checkout-header {
   text-align: center;
   padding: 50px 20px 40px;
-  background: linear-gradient(135deg, var(--primary-light), #fff0f5);
+  background: #111111;
   margin-bottom: 30px;
 }
 
@@ -14,10 +14,11 @@
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 8px;
+  color: white;
 }
 
 .checkout-header p {
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 .checkout-container {
@@ -31,7 +32,7 @@
   border: 1px solid #fcd34d;
   color: #92400e;
   padding: 14px 18px;
-  border-radius: var(--radius-md);
+  border-radius: 20px;
   margin-bottom: 24px;
   font-size: 0.95rem;
   display: flex;
@@ -46,8 +47,8 @@
 .checkForm {
   background: white;
   padding: 32px;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -64,19 +65,19 @@
 }
 
 .ta {
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  border-radius: 20px;
   border: 2px solid #e5e7eb;
   outline: none;
   font-size: 1rem;
   font-family: var(--font-family);
-  transition: var(--transition);
+  transition: all 0.2s;
   background: #fafafa;
   resize: vertical;
 }
 
 .ta:focus {
-  border-color: var(--primary);
+  border-color: #e91e63;
   background: white;
   box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
 }
@@ -86,8 +87,14 @@
   border: 1px solid #fecaca;
   color: #dc2626;
   padding: 14px 16px;
-  border-radius: var(--radius-md);
+  border-radius: 20px;
   font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
@@ -101,7 +108,12 @@
   
   .checkForm {
     padding: 24px;
-    border-radius: var(--radius-lg);
+    border-radius: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 

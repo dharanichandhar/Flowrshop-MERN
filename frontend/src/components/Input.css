@@ -5,30 +5,30 @@
 }
 
 .iLabel {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1a2e;
 }
 
 .iField {
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  border-radius: 20px;
   border: 2px solid #e5e7eb;
   outline: none;
   font-size: 1rem;
   font-family: var(--font-family);
-  transition: var(--transition);
+  transition: all 0.2s;
   background: #fafafa;
 }
 
 .iField:focus {
-  border-color: var(--primary);
+  border-color: #e91e63;
   background: white;
   box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
 }
 
 .iField::placeholder {
-  color: var(--text-light);
+  color: #9ca3af;
 }
 
 .iField:hover:not(:focus) {

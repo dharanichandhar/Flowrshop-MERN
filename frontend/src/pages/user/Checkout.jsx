@@ -56,7 +56,7 @@ export default function Checkout() {
             <Input label="Mobile Number" value={form.mobile} onChange={(e) => onChange("mobile", e.target.value)} placeholder="Enter your mobile number" />
             <Input label="Street Address" value={form.street} onChange={(e) => onChange("street", e.target.value)} placeholder="House No, Street Name" />
             
-            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px'}}>
+            <div className="form-row">
               <Input label="City" value={form.city} onChange={(e) => onChange("city", e.target.value)} placeholder="City" />
               <Input label="State" value={form.state} onChange={(e) => onChange("state", e.target.value)} placeholder="State" />
             </div>
