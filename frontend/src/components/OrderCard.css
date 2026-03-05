@@ -1,0 +1,154 @@
+.oCard {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.oCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.oTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.oId {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.oMeta {
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge:has-text("Pending") {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge:has-text("Packed") {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge:has-text("Shipped") {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.badge:has-text("Delivered") {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge:has-text("Cancelled") {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+select {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 2px solid #e5e7eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  transition: var(--transition);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.oItems {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.oItem {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: var(--radius-md);
+}
+
+.oItem img {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.oItem .t {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.oItem .m {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.oAddr,
+.oUser {
+  margin-top: 16px;
+  padding: 14px;
+  background: #f9fafb;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.oAddr b,
+.oUser b {
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .oCard {
+    padding: 16px;
+  }
+  
+  .oTop {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .oItem {
+    gap: 12px;
+    padding: 10px;
+  }
+  
+  .oItem img {
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,36 @@
+.iWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.iLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.iField {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid #e5e7eb;
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: var(--transition);
+  background: #fafafa;
+}
+
+.iField:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+}
+
+.iField::placeholder {
+  color: var(--text-light);
+}
+
+.iField:hover:not(:focus) {
+  border-color: #d1d5db;
+}
