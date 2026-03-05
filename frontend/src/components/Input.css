@@ -6,16 +6,16 @@
 
 .iLabel {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #1a1a2e;
 }
 
 .iField {
-  padding: 16px 18px;
-  border-radius: 20px;
+  padding: 14px 16px;
+  border-radius: 16px;
   border: 2px solid #e5e7eb;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: var(--font-family);
   transition: all 0.2s;
   background: #fafafa;
@@ -33,4 +33,16 @@
 
 .iField:hover:not(:focus) {
   border-color: #d1d5db;
+}
+
+@media (max-width: 480px) {
+  .iLabel {
+    font-size: 0.85rem;
+  }
+
+  .iField {
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+  }
 }
